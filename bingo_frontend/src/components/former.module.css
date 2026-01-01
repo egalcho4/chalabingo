@@ -1,0 +1,2051 @@
+:root{
+  --blue-1:#0a1f44; /* deep navy */
+  --blue-2:#0b63f6; /* bright accent */
+  --blue-3:#4dabf7; /* light accent */
+  --blue-4:#0f9cf5; /* cyan-ish */
+  --bg-start:#061a3a;
+  --bg-end:#0b3aa6;
+  --glass: rgba(255,255,255,.08);
+  --muted: hsla(0,0%,100%,.7);
+  --text:#eaf3ff;
+  --card:#0a245e;
+  --success:#2bd67b;
+  --warning:#ffd166;
+  --danger:#ff6b6b;
+  --shadow-3d: 0 30px 60px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
+  --radius-2xl: 1.25rem;
+  --radius-xl: 1rem;
+  --radius-lg: .875rem;
+}
+
+
+/* Card Selection Section */
+.card_select{
+     position: fixed;
+    
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(1200px 600px at 10% -10%, #123a99 0%, transparent 60%),
+              radial-gradient(900px 600px at 110% 10%, #0b63f6 0%, transparent 55%),
+              linear-gradient(160deg, var(--bg-start), var(--bg-end));
+   
+
+}
+
+.cardSelectionSection {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: 90%;
+    background: radial-gradient(1200px 600px at 10% -10%, #123a99 0%, transparent 60%),
+              radial-gradient(900px 600px at 110% 10%, #0b63f6 0%, transparent 55%),
+              linear-gradient(160deg, var(--bg-start), var(--bg-end));
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+/* Selection Header with Game Info */
+.selectionHeader {
+    width: 100%;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+    padding: 2px;
+    border-bottom: 3px solid #e94560;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.selectionGameInfo {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 2px;
+    background-color: rgba(22, 36, 71, 0.8);
+    border-radius: 12px;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.selectionInfoItem {
+    background: linear-gradient(145deg, #1f4068 0%, #162447 100%);
+    padding: 2px 1px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.selectionInfoLabel {
+    font-weight: 700;
+    color: #e94560;
+    display: block;
+    font-size: 12px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.selectionInfoValue {
+    color: #fff;
+    font-size: 10px;
+    font-weight: 200;
+}
+
+.selectionInfoValue.highlight {
+    color: #4dff91;
+}
+
+/* Selection Content */
+.selectionContent {
+    top: 20px;
+    width: 100%;
+    flex: 1;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    overflow-y: auto;
+}
+
+.timerDisplay {
+    font-size: 18px;
+    color: #ffcc00;
+    background: linear-gradient(145deg, #1a1a2e 0%, #0f3460 100%);
+    padding: 15px 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    border: 3px solid #ffcc00;
+}
+
+.cardsGrid {
+    position: absolute;
+    top: 50px;
+    display: grid;
+    grid-template-columns: repeat(50,  1fr);
+    gap: 2px;
+    width: 100%;
+    max-width: 100%;
+    padding: 2px;
+    
+    /*background: rgba(22, 36, 71, 0.6);*/
+    border-radius: 20px;
+    
+    
+  
+    min-height: 100%;
+
+
+}
+
+/* Hide scrollbar but keep functionality */
+.cardsGrid::-webkit-scrollbar {
+    width: 8px;
+}
+
+.cardsGrid::-webkit-scrollbar-track {
+    background: #0f3460;
+    border-radius: 10px;
+}
+
+.cardsGrid::-webkit-scrollbar-thumb {
+    background: #e94560;
+    border-radius: 10px;
+}
+
+.cardsGrid::-webkit-scrollbar-thumb:hover {
+    background: #ffcc00;
+}
+
+.cardIndexItem {
+    /*background: linear-gradient(145deg, #1f4068 0%, #162447 100%);
+    border-radius: 8px;
+    background: white;
+    padding: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-weight: 600;
+    font-size: 5px;
+    color:black;*/
+
+     background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 10px;
+  color: #333;
+  min-height: 15px;
+}
+
+.cardIndexItem:hover {
+    transform: translateY(-3px);
+    border-color: #4dff91;
+    box-shadow: 0 6px 15px rgba(77, 255, 145, 0.3);
+}
+
+.cardIndexItem.selected {
+    background: linear-gradient(145deg, #e94560 0%, #c13550 100%);
+    border-color: #ffcc00;
+    color: white;
+    box-shadow: 0 6px 20px rgba(233, 69, 96, 0.5);
+    transform: scale(1.05);
+}
+
+.cardIndexItem.selected:hover {
+    border-color: #ffcc00;
+}
+
+.selectCardBtn {
+    background: linear-gradient(145deg, #e94560 0%, #c13550 100%);
+    color: white;
+    border: none;
+    padding: 15px 50px;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 6px 15px rgba(233, 69, 96, 0.4);
+    margin-top: 10px;
+}
+
+.selectCardBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(233, 69, 96, 0.6);
+}
+
+/* Main Game Container */
+.gameWrapper {
+    position: fixed;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    left: 0;
+    top: 0;
+    height: 90%;
+}
+
+
+
+.gameTitle {
+    font-size: 28px;
+    font-weight: 800;
+    color: #e94560;
+    text-align: center;
+    width: 100%;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.gameInfo {
+     position: fixed;
+    
+    width: 100%;
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2px;
+    padding: 15px;
+    font-size: 14px;
+    text-align: center;
+    background-color: #1a1a2e;
+}
+
+.infoItem {
+    background: linear-gradient(145deg, #1f4068 0%, #162447 100%);
+    padding: 2px 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+}
+
+.infoItem:hover {
+    transform: translateY(-3px);
+}
+
+.infoLabel {
+    font-weight: 700;
+    color: #e94560;
+    display: block;
+    font-size: 12px;
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+}
+
+.infoValue {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* Main Game Layout - Perfect 50/50 Split */
+.mainGameLayout {
+    position: fixed;
+    top: 120px;
+   
+    display: flex;
+    width: 100%;
+    flex: 1;
+    left: 0;
+    
+    height: 80%;
+margin-bottom: 20px;
+}
+
+/* Left Panel - Number Grid (50%) */
+.leftPanel {
+    
+    width: 50%;
+    background: linear-gradient(180deg, #0f3460 0%, #1a1a2e 100%);
+    padding: 2px;
+    display: flex;
+    height: 100%;
+    margin-bottom: 20px;
+    flex-direction: column;
+    border-right: 3px solid #e94560;
+}
+
+.numbersContainer {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    width: 50%;
+    margin-bottom: 300px;
+}
+
+.bingoHeader {
+
+    display: flex;
+    background-color: #1a1a2e;
+    padding: 15px 0;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.bingoLetter {
+    flex: 1;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 800;
+    color: #e94560;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.numbersGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    gap: 5px;
+    
+    flex: 1;
+}
+
+.numberCell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #1f4068 0%, #162447 100%);
+    font-weight: 700;
+    color: white;
+    font-size: 11px;
+    transition: all 0.3s;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.numberCell:hover {
+    background: linear-gradient(145deg, #2a4d7a 0%, #1f4068 100%);
+    transform: scale(1.05);
+}
+
+.numberCell.called {
+    background: linear-gradient(145deg, #e94560 0%, #c13550 100%);
+    color: white;
+    box-shadow: 0 4px 8px rgba(233, 69, 96, 0.4);
+}
+
+/* Right Panel - Call Section (50%) */
+.rightPanel {
+    width: 50%;
+    background: linear-gradient(180deg, #1f4068 0%, #0f3460 100%);
+    padding: 1px;
+    display: flex;
+    flex-direction: column;
+}
+
+.rightContent {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 10px;
+}
+
+/* Circular Call Display */
+.circularCallContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.callLabel {
+    font-size: 20px;
+    color: #ffcc00;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.circularCall {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin-bottom: 20px;
+}
+
+.outerRing {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(
+        #e94560 0% 25%,
+        #4dff91 25% 50%,
+        #ffcc00 50% 75%,
+        #00b4d8 75% 100%
+    );
+    padding: 12px;
+    box-shadow: 
+        0 0 30px rgba(233, 69, 96, 0.5),
+        0 0 50px rgba(77, 255, 145, 0.3);
+    animation: rotateRing 20s linear infinite;
+}
+
+.middleRing {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+    padding: 10px;
+    box-shadow: 
+        inset 0 0 20px rgba(0, 0, 0, 0.8),
+        0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.innerCircle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #1a1a2e 0%, #0f3460 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+        inset 0 5px 15px rgba(0, 0, 0, 0.7),
+        0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 4px solid white;
+}
+
+.callLetter {
+    font-size: 28px;
+    font-weight: 900;
+    color: #e94560;
+    margin-bottom: 5px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.callNumber {
+    font-size: 52px;
+    font-weight: 900;
+    color: #4dff91;
+    text-shadow: 
+        0 2px 10px rgba(77, 255, 145, 0.5),
+        0 0 20px rgba(77, 255, 145, 0.3);
+    line-height: 1;
+}
+
+.callSeparator {
+    width: 80%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #e94560, #4dff91, #ffcc00, transparent);
+    margin: 10px 0;
+    border-radius: 2px;
+}
+
+/* Recent Calls Section */
+.recentCallsSection {
+    width: 100%;
+    margin-top: 0px;
+}
+
+.recentCallsTitle {
+    font-size: 18px;
+    color: #ffcc00;
+    font-weight: 700;
+   
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.recentCallsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    background: rgba(22, 36, 71, 0.7);
+    padding: 3px;
+    border-radius: 12px;
+    height: 80px;
+    
+    
+}
+
+.recentCallItem {
+    background: linear-gradient(145deg, #1f4068 0%, #0f3460 100%);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    min-width: 50px;
+    text-align: center;
+}
+
+.recentCallItem .callLetter {
+    color: #e94560;
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+
+.recentCallItem .callNumber {
+    color: #4dff91;
+    font-size: 16px;
+    text-shadow: none;
+}
+
+/* Player Card Section */
+.playerCardSection {
+    width: 100%;
+    margin-top: 10px;
+    height: 200px;
+}
+
+.playerCardTitle {
+    font-size: 18px;
+    color: #4dff91;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.playerBingoCard {
+    background: linear-gradient(145deg, #1f4068 0%, #162447 100%);
+    border-radius: 12px;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.playerCell {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #0f3460 0%, #1a1a2e 100%);
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.playerCell.free {
+    background: linear-gradient(145deg, #e94560 0%, #c13550 100%);
+    color: white;
+    font-size: 10px;
+}
+
+.playerCell.marked {
+    background: linear-gradient(145deg, #4dff91 0%, #2ac36d 100%);
+    color: #0f3460;
+    transform: scale(0.95);
+}
+
+.playerCell.bingo {
+    animation: bingoPulse 1s infinite;
+}
+
+/* Winner Modal */
+.winnerModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 15, 30, 0.95);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.winnerContent {
+    background: linear-gradient(145deg, #1f4068 0%, #0f3460 100%);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    border: 5px solid #e94560;
+    animation: winnerPulse 2s infinite;
+}
+
+.winnerTitle {
+    font-size: 48px;
+    color: #4dff91;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px rgba(77, 255, 145, 0.7);
+}
+
+.winnerSubtitle {
+    font-size: 24px;
+    color: #ffcc00;
+    margin-bottom: 30px;
+}
+
+.winnerCard {
+    font-size: 32px;
+    color: #e94560;
+    background: rgba(22, 36, 71, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px 0;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.winnerPrize {
+    font-size: 36px;
+    color: #4dff91;
+    margin-top: 20px;
+    font-weight: 800;
+    text-shadow: 0 0 15px rgba(77, 255, 145, 0.7);
+}
+
+.footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: #7a8ba9;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 15px;
+    width: 100%;
+    background: #1a1a2e;
+}
+
+/* Animations */
+@keyframes rotateRing {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 
+            0 0 30px rgba(233, 69, 96, 0.5),
+            0 0 50px rgba(77, 255, 145, 0.3);
+    }
+    50% {
+        box-shadow: 
+            0 0 40px rgba(233, 69, 96, 0.7),
+            0 0 60px rgba(77, 255, 145, 0.5);
+    }
+}
+
+@keyframes bingoPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(77, 255, 145, 0.7);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(77, 255, 145, 0.9);
+    }
+}
+
+@keyframes winnerPulse {
+    0%, 100% {
+        border-color: #e94560;
+        box-shadow: 0 20px 50px rgba(233, 69, 96, 0.4);
+    }
+    50% {
+        border-color: #4dff91;
+        box-shadow: 0 20px 60px rgba(77, 255, 145, 0.6);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .mainGameLayout {
+        flex-direction: row;
+        gap: 6px;
+    }
+    
+    .leftPanel, .rightPanel {
+        width: 50%;
+        border-right: none;
+        border-bottom: 3px solid #e94560;
+    }
+    
+    
+    
+    .cardsGrid {
+        grid-template-columns: repeat(10,  1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .selectionGameInfo {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2px;
+        padding: 1px;
+    }
+    
+    .selectionInfoItem {
+        padding: 2px;
+        width: 60px;
+        height: 40px;
+    }
+    
+    .selectionInfoValue {
+        font-size: 6px;
+    }
+    
+    .selectionMainTitle {
+        font-size: 8px;
+    }
+    
+    .selectionSubtitle {
+        font-size: 16px;
+        padding: 0 15px;
+    }
+    
+    .timerDisplay {
+        font-size: 11px;
+        padding: 12px 25px;
+    }
+    
+    .cardsGrid {
+        grid-template-columns: repeat(15,  1fr);
+        gap: 1px;
+        max-height: 100%;
+    }
+    
+    .cardIndexItem {
+        width: 20px;
+        height: 20px;
+        padding: 2px;
+        font-size: 5px;
+    }
+    
+    .selectCardBtn {
+        padding: 12px 40px;
+        font-size: 18px;
+    }
+    
+    .gameInfo {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .bingoLetter {
+        font-size: 14px;
+    }
+    
+    .circularCall {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .callLetter {
+        font-size: 16px;
+    }
+    
+    .callNumber {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .selectionGameInfo {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        max-width: 500px;
+    }
+    
+    .selectionInfoValue {
+        font-size: 18px;
+    }
+    
+    .cardsGrid {
+        grid-template-columns: repeat(15,  1fr);
+        gap: 2px;
+        max-height: 250px;
+    }
+    
+    .cardIndexItem {
+        padding: 2px;
+        font-size: 11px;
+    }
+    
+    .selectionMainTitle {
+        font-size: 24px;
+    }
+    
+    .selectionSubtitle {
+        font-size: 14px;
+    }
+    
+    .gameInfo {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+        top: 40px;
+    }
+    
+    .infoItem {
+        padding: 4px ;
+    }
+    
+    .infoLabel {
+        font-size: 10px;
+    }
+    
+    .infoValue {
+        font-size: 14px;
+        color: white;
+
+    }
+    
+    .bingoLetter {
+        font-size: 12px;
+    }
+    
+    .numberCell {
+        gap: 6px;
+        font-size: 12px;
+        min-height: 22px;
+        height: 20px;
+        width: 20px;
+        margin-top: 10px;
+    }
+    
+    .circularCall {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .callLetter {
+        font-size: 42px;
+    }
+    
+    .callNumber {
+        font-size: 42px;
+    }
+    
+    .recentCallItem {
+        padding: 2px ;
+        font-size: 12px;
+        min-width: 45px;
+    }
+    
+    .playerCell {
+        font-size: 12px;
+    }
+}
+
+
+/* Additional styles for new features */
+
+/* Selection Info Bar */
+.selectionInfoBar {
+  width: 100%;
+  padding: 10px;
+  background: rgba(22, 36, 71, 0.8);
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.selectionStats {
+  display: flex;
+  justify-content: space-around;
+  color: #4dff91;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Taken card styling */
+.cardIndexItem.taken {
+  background: linear-gradient(145deg, #666 0%, #444 100%);
+  cursor: not-allowed;
+  opacity: 0.6;
+  position: relative;
+}
+
+.cardIndexItem.taken:hover {
+  transform: none;
+  border-color: transparent;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.takenIndicator {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  color: #e94560;
+  font-size: 8px;
+  font-weight: bold;
+}
+
+/* Latest marked cell */
+.playerCell.latestMarked {
+  background: linear-gradient(145deg, #00ff00 0%, #00cc00 100%) !important;
+  color: #000 !important;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.7);
+}
+
+/* Latest call in recent calls */
+.recentCallItem.latestCall {
+  background: linear-gradient(145deg, #00ff00 0%, #00cc00 100%);
+  animation: latestCallPulse 1s infinite;
+}
+
+.recentCallItem.latestCall .callLetter,
+.recentCallItem.latestCall .callNumber {
+  color: #000;
+}
+
+@keyframes latestCallPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.9);
+  }
+}
+
+/* Player cards container */
+.playerCardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  justify-content: center;
+  max-height: 500px;
+  overflow-y: auto;
+  padding: 4px;
+}
+
+.playerCardWrapper {
+  background: linear-gradient(145deg, #1f4068 0%, #162447 100%);
+  border-radius: 12px;
+  padding: 5px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  min-width: 150px;
+}
+
+.playerCardHeader {
+  text-align: center;
+  color: #ffcc00;
+  font-weight: 700;
+  margin-bottom: 1px;
+  font-size: 6px;
+  padding-bottom: 1px;
+  border-bottom: 1px solid #e94560;
+}
+
+/* Winner card display in modal */
+.winnerCardDisplay {
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(22, 36, 71, 0.8);
+  border-radius: 15px;
+}
+
+.winnerCardHeader {
+  font-size: 20px;
+  color: #ffcc00;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.winnerCardGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+}
+
+.winnerCardCell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #0f3460 0%, #1a1a2e 100%);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.winnerCardCell.marked {
+  background: linear-gradient(145deg, #4dff91 0%, #2ac36d 100%);
+  color: #0f3460;
+}
+
+/* Disabled button */
+.selectCardBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.selectCardBtn:disabled:hover {
+  transform: none;
+  box-shadow: 0 6px 15px rgba(233, 69, 96, 0.4);
+}
+/* Add these styles to your existing Bingo.module.css */
+
+/* Winner Modal Styles */
+.winnerModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.winnerContent {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  color: white;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.5s ease;
+}
+
+.winnerHeader {
+  margin-bottom: 1.5rem;
+}
+
+.winnerFireworks {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.winnerTitle {
+  font-size: 2.5rem;
+  margin: 1rem 0;
+  color: #ffd700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.winnerBody {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.winnerSubtitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.winnerUserWon {
+  font-size: 2rem;
+  color: #ffd700;
+  margin: 1rem 0;
+  animation: pulse 1.5s infinite;
+}
+
+.winnerPrizeHighlight {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ffd700;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  background: rgba(255, 215, 0, 0.1);
+  border-radius: 10px;
+  border: 2px solid #ffd700;
+}
+
+.winnerDetails {
+  text-align: left;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 1rem 0;
+}
+
+.winnerName, .winnerCardInfo, .winnerPattern, .winnerPrize {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.winnerLabel {
+  font-weight: bold;
+  color: #ccc;
+}
+
+.winnerValue {
+  font-weight: bold;
+  color: white;
+}
+
+.winnerRoundInfo {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-top: 1rem;
+}
+
+.winnerFooter {
+  margin-top: 1.5rem;
+}
+
+.winnerCountdown {
+  margin: 1rem 0;
+}
+
+.countdownText {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.countdownNumber {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffd700;
+}
+
+.countdownBar {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.countdownProgress {
+  height: 100%;
+  background: linear-gradient(90deg, #ffd700, #ff9900);
+  animation: countdownBar 5s linear;
+}
+
+.currentCallDuringWin {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.winningCall {
+  font-size: 1.2rem;
+}
+
+.winningCallNumber {
+  font-weight: bold;
+  color: #ffd700;
+}
+
+/* Mini Card Styles */
+.miniCard {
+  background: white;
+  border-radius: 8px;
+  padding: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.miniCardNumbers {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2px;
+}
+
+.miniCell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+  background: #f5f5f5;
+  border-radius: 3px;
+}
+
+.miniMarked {
+  background: #4CAF50;
+  color: white;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes countdownBar {
+  0% { width: 100%; }
+  100% { width: 0%; }
+}
+
+/* Selection Timer */
+.selectionTimer {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.timerValue {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ff4444;
+}
+
+.timerLabel {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* Error State */
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  padding: 2rem;
+}
+
+.errorIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.errorText {
+  font-size: 1.2rem;
+  color: #ff4444;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.retryButton {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.retryButton:hover {
+  background: #5a67d8;
+}
+
+/* Round Finished State */
+.roundFinished {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.finishedContent {
+  text-align: center;
+  padding: 2rem;
+}
+
+.loadingSpinnerSmall {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 1rem auto;
+}
+
+/* Cards Selection Improvements */
+.cardsHeader {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.cardsStats {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.selectionFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.refreshButton {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.refreshButton:hover {
+  background: #45a049;
+}
+
+.selectionInstructions {
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+}
+
+
+/* Winner Modal Mobile Styles */
+.winnerModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 15, 30, 0.98);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  animation: fadeIn 0.3s ease;
+}
+
+.winnerContent {
+  background: linear-gradient(145deg, #1f4068 0%, #0f3460 100%);
+  width: 95%;
+  max-width: 400px;
+  border-radius: 20px;
+  padding: 20px 15px;
+  border: 4px solid #e94560;
+  box-shadow: 
+    0 15px 40px rgba(233, 69, 96, 0.4),
+    0 0 60px rgba(77, 255, 145, 0.3);
+  animation: slideUp 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.winnerContent::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 70%
+  );
+  animation: shine 3s infinite linear;
+}
+
+.winnerHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.winnerFireworks {
+  font-size: 20px;
+  letter-spacing: 3px;
+  margin: 5px 0;
+  color: #ffcc00;
+  animation: pulse 1.5s infinite;
+}
+
+.winnerTitle {
+  font-size: 28px;
+  font-weight: 900;
+  color: #4dff91;
+  margin: 10px 0;
+  text-align: center;
+  text-shadow: 
+    0 0 20px rgba(77, 255, 145, 0.8),
+    0 0 40px rgba(77, 255, 145, 0.4);
+  letter-spacing: 1px;
+}
+
+.winnerBody {
+  background: rgba(22, 36, 71, 0.7);
+  border-radius: 15px;
+  padding: 15px;
+  margin: 15px 0;
+  border: 2px solid rgba(233, 69, 96, 0.3);
+}
+
+.winnerSubtitle {
+  font-size: 18px;
+  color: #ffcc00;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.winnerUserWon {
+  font-size: 22px;
+  color: #4dff91;
+  font-weight: 900;
+  text-align: center;
+  margin: 15px 0;
+  padding: 10px;
+  background: rgba(77, 255, 145, 0.1);
+  border-radius: 10px;
+  border: 2px solid #4dff91;
+  animation: pulse 2s infinite;
+}
+
+.winnerPrizeHighlight {
+  font-size: 26px;
+  font-weight: 900;
+  color: #ffcc00;
+  text-align: center;
+  margin: 15px 0;
+  padding: 10px;
+  background: linear-gradient(145deg, rgba(255, 204, 0, 0.2), rgba(255, 204, 0, 0.1));
+  border-radius: 12px;
+  border: 2px solid #ffcc00;
+  text-shadow: 0 0 15px rgba(255, 204, 0, 0.7);
+}
+
+.winnerDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: rgba(10, 15, 30, 0.6);
+  padding: 12px;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+.winnerName,
+.winnerCardInfo,
+.winnerPattern,
+.winnerPrize {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(233, 69, 96, 0.2);
+}
+
+.winnerLabel {
+  font-size: 14px;
+  color: #e94560;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.winnerValue {
+  font-size: 16px;
+  color: #4dff91;
+  font-weight: 700;
+  text-align: right;
+}
+
+.winnerRoundInfo {
+  font-size: 14px;
+  color: #ffcc00;
+  text-align: center;
+  margin-top: 15px;
+  padding: 8px;
+  background: rgba(255, 204, 0, 0.1);
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.winnerFooter {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.winnerCountdown {
+  background: rgba(22, 36, 71, 0.8);
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.countdownText {
+  font-size: 14px;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.currentCallDuringWin {
+  background: linear-gradient(145deg, #1f4068 0%, #0f3460 100%);
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid #e94560;
+  text-align: center;
+}
+
+.winningCall {
+  font-size: 16px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.winningCallNumber {
+  font-size: 20px;
+  color: #4dff91;
+  font-weight: 900;
+  margin-left: 5px;
+  text-shadow: 0 0 10px rgba(77, 255, 145, 0.7);
+}
+
+/* No Winner Modal Mobile Styles */
+.noWinnerModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 15, 30, 0.98);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  animation: fadeIn 0.3s ease;
+}
+
+.noWinnerContent {
+  background: linear-gradient(145deg, #1f4068 0%, #0f3460 100%);
+  width: 95%;
+  max-width: 400px;
+  border-radius: 20px;
+  padding: 20px 15px;
+  border: 4px solid #666;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  animation: slideUp 0.4s ease;
+  position: relative;
+}
+
+.noWinnerHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.noWinnerIcon {
+  font-size: 50px;
+  color: #e94560;
+  margin-bottom: 10px;
+  animation: bounce 1s infinite alternate;
+}
+
+.noWinnerTitle {
+  font-size: 24px;
+  font-weight: 800;
+  color: #e94560;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(233, 69, 96, 0.5);
+  letter-spacing: 1px;
+}
+
+.noWinnerBody {
+  background: rgba(22, 36, 71, 0.7);
+  border-radius: 15px;
+  padding: 15px;
+  margin: 15px 0;
+  border: 2px solid rgba(102, 102, 102, 0.3);
+}
+
+.noWinnerMessage {
+  font-size: 16px;
+  color: #ffcc00;
+  text-align: center;
+  margin-bottom: 15px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.noWinnerDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: rgba(10, 15, 30, 0.6);
+  padding: 12px;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+.noWinnerDetailItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 204, 0, 0.2);
+}
+
+.noWinnerLabel {
+  font-size: 14px;
+  color: #ffcc00;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.noWinnerValue {
+  font-size: 16px;
+  color: #4dff91;
+  font-weight: 700;
+  text-align: right;
+}
+
+.noWinnerInfo {
+  font-size: 14px;
+  color: #4dff91;
+  text-align: center;
+  margin-top: 15px;
+  padding: 10px;
+  background: rgba(77, 255, 145, 0.1);
+  border-radius: 8px;
+  font-weight: 600;
+  border: 1px solid rgba(77, 255, 145, 0.3);
+}
+
+.noWinnerFooter {
+  margin-top: 20px;
+}
+
+.noWinnerCountdown {
+  background: rgba(22, 36, 71, 0.8);
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 480px) {
+  .winnerContent,
+  .noWinnerContent {
+    width: 92%;
+    padding: 15px 12px;
+    border-width: 3px;
+  }
+  
+  .winnerTitle {
+    font-size: 24px;
+  }
+  
+  .winnerFireworks {
+    font-size: 18px;
+  }
+  
+  .winnerUserWon {
+    font-size: 20px;
+    padding: 8px;
+  }
+  
+  .winnerPrizeHighlight {
+    font-size: 22px;
+    padding: 8px;
+  }
+  
+  .winnerSubtitle {
+    font-size: 16px;
+  }
+  
+  .noWinnerTitle {
+    font-size: 22px;
+  }
+  
+  .noWinnerIcon {
+    font-size: 45px;
+  }
+  
+  .winnerLabel,
+  .noWinnerLabel {
+    font-size: 13px;
+  }
+  
+  .winnerValue,
+  .noWinnerValue {
+    font-size: 15px;
+  }
+  
+  .winningCallNumber {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 360px) {
+  .winnerTitle {
+    font-size: 22px;
+  }
+  
+  .noWinnerTitle {
+    font-size: 20px;
+  }
+  
+  .winnerUserWon {
+    font-size: 18px;
+  }
+  
+  .winnerPrizeHighlight {
+    font-size: 20px;
+  }
+  
+  .winnerDetails,
+  .noWinnerDetails {
+    padding: 10px;
+  }
+  
+  .winnerLabel,
+  .noWinnerLabel {
+    font-size: 12px;
+  }
+  
+  .winnerValue,
+  .noWinnerValue {
+    font-size: 14px;
+  }
+}
+
+/* Ensure modals appear above all content */
+.winnerModal,
+.noWinnerModal {
+  z-index: 3000;
+}
+
+/* Prevent body scroll when modal is open */
+body.modal-open {
+  overflow: hidden;
+}
+/* Countdown Bar Styles */
+.countdownBar {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.countdownProgress {
+  height: 100%;
+  background: linear-gradient(90deg, #4dff91, #00ff00);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+  width: 100%;
+}
+
+/* Selection in progress indicator */
+.selectionInProgress {
+  background: rgba(255, 204, 0, 0.2);
+  color: #ffcc00;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Round finished state */
+.roundFinished {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+}
+
+.finishedContent {
+  text-align: center;
+  padding: 40px;
+  background: rgba(22, 36, 71, 0.8);
+  border-radius: 20px;
+  border: 3px solid #e94560;
+}
+
+.loadingSpinnerSmall {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #e94560;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Connection error overlay */
+.connectionError {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(233, 69, 96, 0.9);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+/* BINGO Grid Layout */
+.bingoGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(15, 1fr);
+  gap: 2px;
+  height: 100%;
+}
+
+.bingoRow {
+  display: contents;
+}
+
+.bingoCell {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+  min-height: 30px;
+}
+
+.bingoCell.called {
+  background: #4CAF50;
+  color: white;
+  border-color: #388E3C;
+}
+
+/* Hide the old numbersGrid if you want */
+.numbersGrid {
+  display: none;
+}
+
+
+/* BINGO Grid Layout */
+.bingoGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(15, 1fr);
+  gap: 2px;
+  height: 100%;
+}
+
+.bingoRow {
+  display: contents;
+}
+
+.bingoCell {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+  min-height: 30px;
+  transition: all 0.3s ease;
+}
+
+/* Previously called numbers - RED */
+.bingoCell.called {
+  background: #ff6b6b; /* Red for previously called */
+  color: white;
+  border-color: #ff5252;
+}
+
+/* Last called number - GREEN/BLUE */
+.bingoCell.currentCalled {
+  background: #4CAF50; /* Green for current/last called */
+  color: white;
+  border-color: #388E3C;
+  transform: scale(1.05);
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+  z-index: 1;
+}
+
+/* Mini card styles for current number */
+.miniCell.miniCurrent {
+  background: #4CAF50 !important; /* Green for current */
+  color: white !important;
+  font-weight: bold;
+}
+
+.miniCell.miniMarked {
+  background: #ff6b6b !important; /* Red for previously marked */
+  color: white !important;
+}
+
+/* BINGO Header */
+.bingoHeader {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2px;
+  margin-bottom: 10px;
+}
+
+.bingoLetter {
+  background: #2196F3;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  padding: 4px 0;
+  border-radius: 4px;
+}

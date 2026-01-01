@@ -1,0 +1,38 @@
+/* Mobile optimizations */
+@media (max-width: 360px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* Touch targets */
+button, 
+a {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Date picker mobile styles */
+.react-datepicker {
+  width: 100%;
+  font-size: 14px;
+}
+
+.react-datepicker__month-container {
+  width: 100%;
+}
+
+/* Smooth transitions */
+* {
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
