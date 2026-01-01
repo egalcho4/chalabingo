@@ -35,5 +35,3 @@ coverage.xml
 /bingo_frontend/yarn-error.log*
 /bingo_frontend/.pnp
 /bingo_frontend/.pnp.js
-/bingo_frontend/src/api/admin.js
-/bing_frontend/src/pages/admin.jsx
